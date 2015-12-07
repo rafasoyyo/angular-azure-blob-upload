@@ -1,0 +1,14 @@
+{
+  "name": "btn-loader",
+  "private": false,
+  "dependencies": {
+    "gulp": "*",
+    "gulp-util": "*",
+    "gulp-watch": "*",
+    "gulp-minify": "*",
+    "gulp-coffee": "*",
+    "gulp-notify": "*",
+    "gulp-livereload": "*",
+    "gulp-ng-annotate" : "*"
+  }
+}

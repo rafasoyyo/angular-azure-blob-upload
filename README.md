@@ -1,9 +1,12 @@
 angular-azure-blob-upload
 =========================
 
-AngularJS service for uploading to azure blob storage.
+AngularJS service for uploading and downloading to azure blob storage. Provides for the ability to upload and download an HTML5 File to Azure's Blob Storage. 
 
-Provides for the ability to upload an HTML5 File to Azure's Blob Storage. The file is uploaded in chunks to avoid memory issues as a BlockBlob. The upload uses a Shared Access Signature (SAS) to secure the file upload.
+The file is uploaded in chunks to avoid memory issues as a BlockBlob. 
+The download is made with "XMLHttpRequest" to provide events so it could not work on old browsers.
+
+It uses a Shared Access Signature (SAS) to secure the file upload.
 
 Required dependencies
 -----------------------
@@ -31,7 +34,8 @@ angular.module('myapp')
 }])
 ```
 
-This will expose the following method
+##### UPLOAD
+This will expose the following method to upload:
 
 * azureBlob.upload(config)
 
@@ -39,16 +43,33 @@ The config object has the following properties
 
 ```javascript
 {
-  baseUrl: // baseUrl for blob file uri (i.e. http://<accountName>.blob.core.windows.net/<container>/<blobname>),
-  sasToken: // Shared access signature querystring key/value prefixed with ?,
-  file: // File object using the HTML5 File API,
-  progress: // progress callback function,
-  complete: // complete callback function,
-  error: // error callback function,
-  blockSize: // Use this to override the DefaultBlockSize,
+  baseUrl: 		// baseUrl for blob file uri (i.e. http://<accountName>.blob.core.windows.net/<container>/<blobname>),
+  sasToken: 	// Shared access signature querystring key/value prefixed with ?,
+  file: 		// File object using the HTML5 File API,
+  progress: 	// progress callback function,
+  complete: 	// complete callback function,
+  error: 		// error callback function,
+  blockSize: 	// Use this to override the DefaultBlockSize,
 }
 ```
 
+##### DOWNLOAD
+This will expose the following method to download:
+
+* azureBlob.download(config)
+
+The config object has the following properties
+
+```javascript
+{
+  baseUrl: 		// baseUrl for blob file uri (i.e. http://<accountName>.blob.core.windows.net/<container>/<blobname>),
+  sasToken: 	// Shared access signature querystring key/value prefixed with ?,
+  file: 		// File object using the HTML5 File API,
+  progress: 	// progress callback function,
+  complete: 	// complete callback function,
+  error: 		// error callback function
+}
+```
 
 CORS
 -------------
