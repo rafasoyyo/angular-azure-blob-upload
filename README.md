@@ -34,15 +34,11 @@ angular.module('myapp')
 }])
 ```
 
+
 ##### UPLOAD
-This will expose the following method to upload:
 
-* azureBlob.upload(config)
-
-The config object has the following properties
-
-```javascript
-{
+```
+azureBlob.upload({
   baseUrl: 		// baseUrl for blob file uri (i.e. http://<accountName>.blob.core.windows.net/<container>/<blobname>),
   sasToken: 	// Shared access signature querystring key/value prefixed with ?,
   file: 		// File object using the HTML5 File API,
@@ -50,25 +46,21 @@ The config object has the following properties
   complete: 	// complete callback function,
   error: 		// error callback function,
   blockSize: 	// Use this to override the DefaultBlockSize,
-}
+})
 ```
 
+
 ##### DOWNLOAD
-This will expose the following method to download:
 
-* azureBlob.download(config)
-
-The config object has the following properties
-
-```javascript
-{
+```
+azureBlob.download({
   baseUrl: 		// baseUrl for blob file uri (i.e. http://<accountName>.blob.core.windows.net/<container>/<blobname>),
   sasToken: 	// Shared access signature querystring key/value prefixed with ?,
   file: 		// File object using the HTML5 File API,
   progress: 	// progress callback function,
   complete: 	// complete callback function,
   error: 		// error callback function
-}
+})
 ```
 
 CORS
